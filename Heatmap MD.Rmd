@@ -1,0 +1,47 @@
+---
+title: "Heatmap MD"
+author: "Selene Muñoz"
+date: "15/10/2021"
+output: html_document
+---
+
+Instalar paqueterías
+
+install.packages("pheatmap")
+
+install.packages("viridisLite")
+
+Llamar librerías
+```{r}
+library(pheatmap)
+library(viridis)
+```
+
+Cargar datos - matriz
+file.choose()
+```{r}
+heatmap_1 <- as.matrix(
+  read.csv("C:\\Users\\munoz\\Dropbox\\Selene\\Doctorado\\4to semestre\\Unidad 2\\Lab45\\RCABIN.csv" ,
+           sep = "," ,
+           header = T,
+           row.names = 1))
+```
+
+Graficar mapa de calor
+```{r}
+pheatmap(heatmap_1)
+```
+
+Paleta de colores
+```{r}
+colorz <- c('white', 'orange')
+```
+
+Gráfica personalizada
+```{r}
+pheatmap(heatmap_1, frontsize = 6, cluster_rows = T, cluster_cols = F, treeheight_row = 1, treeheight_col = 0, 
+         main = "", fontsize = 9, annotation_legend = FALSE, display_numbers = FALSE, 
+         fontsize_number = 6, col = colorz)
+```
+
+
